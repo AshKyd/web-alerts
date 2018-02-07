@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Untitled</title>
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+		<label>Browser: <input type="text" id="browsername"></label>
+
+		<button id="icon">Icon</button>
+		<button id="no-icon">No Icon</button>
+		<script>
+		document.querySelector('#icon').onclick = function(){
+			try{
+			  Notification.requestPermission().then(function(){
+					new Notification('test ' + browsername.value, {
+						icon: 'http://i.imgur.com/LR9JRhC.png',
+						body: 'body',
+					});
+				});
+			} catch(e){
+				new Notification('test ' + browsername.value, {
+					icon: 'http://i.imgur.com/LR9JRhC.png',
+					body: 'body',
+				});
+			}
+		}
+		document.querySelector('#no-icon').onclick = function(){
+			try{
+			  Notification.requestPermission().then(function(){
+					new Notification('test ' + browsername.value, {
+						body: 'body',
+					});
+				});
+			} catch(e){
+				new Notification('test ' + browsername.value, {
+					body: 'body',
+				});
+			}
+		}
+		</script>
+	</body>
+</html>
